@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static "style.css" %}">
+  </head>
+  {% block a %}
+  <style>
+    #button {
+      background-color: #072f4f;
+      border: none;
+      color: white;
+      padding: 15px 25px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+    #button {border-radius: 8px;}
+
+    input[type="text"],select {
+      width: 40%;
+      padding: 12px 20px;
+      display: inline-block;
+      border: 1px solid rgb(131, 164, 255);
+      border-radius: 4px;
+      margin-bottom: 10px;
+      background-color: white;
+    }
+  </style>
+  <body style="background-color:#269a82">
+    <h1 style="padding-top: 3%; padding-left: 30%">My Library</h1>
+    <form method="post" style="font-size: 20px; padding-left: 30%">
+      {% csrf_token %}
+      {{ form1.as_p }}
+      <input type="submit" value="Add" id='button'><br><br>
+    </form>
+    <br>
+    <table id="table">
+      <th>CODE</th>
+      <th>NAME</th>
+      <th>AUTHOR</th>
+      <th>PUBLISHER</th>
+      <th>CATEGORY</th>
+      <th>EDIT</th>
+      <th>DELETE</th>
+
+      {% for book in book_list %}
+        <tr>
+          <td>{{ book.book_code }}</td>
+          <td>{{ book.book_title }}</td>
+          <td>{{ book.author_name }}</td>
+          <td>{{ book.publisher }}</td>
+          <td>{{ book.category }}</td>
+          <td><a href="{% url 'edit' pk=book.pk %}"><input type="submit" value="edit" id='button2'></a></td>
+          <td><a href="{% url 'delete' pk=book.pk %}"><input type="submit" value="delete" id='button3'></a></td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="7" class="text-center bg-warning">No book</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
+{% endblock %}

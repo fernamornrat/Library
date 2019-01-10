@@ -1,0 +1,44 @@
+#button2 {
+    background-color: #ffde2c;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+#button2 {border-radius: 8px;}
+
+#button3 {
+    background-color: #f25821;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+#button3 {border-radius: 8px;}
+
+table {
+    background-color: #fffde0;
+    color: white;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+th{
+    background-color: #009058;
+    padding: 8px;
+    text-align: center;
+}
+
+td {
+    color: black;
+    padding: 8px;
+    text-align: center;
+}
+
+tr:hover {background-color:#bcd890;}
